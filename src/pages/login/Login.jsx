@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import './login.css'
 
 function Login() {
@@ -53,12 +54,9 @@ function Login() {
           >
             Login
           </button>
-          <button
-            type="button"
-            className="register-button"
-          >
-            New to MyTunes? Sign up for free!
-          </button>
+          <div>
+            <Link to='/register'>New to MyTunes? Sign up for free!</Link> 
+          </div>
 
         </form>
       </div>
