@@ -15,7 +15,7 @@ function Login() {
 
   return (
     <main className="main">
-      <div className="container-form" data-testid="page-login">
+      <div className="container-form">
         <h1 className="title">My Tunes</h1>
         <i
           className="bi bi-music-note-list fs-3"
@@ -29,7 +29,6 @@ function Login() {
             <input
               className="input-login"
               placeholder="E-mail"
-              data-testid="login-name-input"
               type="text"
               name="emailInput"
               id="emailInput"
