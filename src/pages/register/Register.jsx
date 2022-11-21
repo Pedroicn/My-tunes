@@ -1,7 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './register.css'
 
 function Register() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
+
+  const handleEmail = ({ target: { value } }) => {
+    setEmail(value);
+  };
+
+  const handlePassword = ({ target: { value } }) => {
+    setPassword(value);
+  };
+
+  const handleRepeatPassword = ({ target: { value } }) => {
+    setRepeatPassword(value);
+  };
+
   return (
     <main className="main">
       <div className="container-form">
@@ -20,6 +36,8 @@ function Register() {
               placeholder="E-mail"
               type="email"
               name="emailInput"
+              value={ email }
+              onChange={ handleEmail }
             />
           </div>
           <div className="inputs-register">
@@ -29,7 +47,8 @@ function Register() {
               placeholder="Password"
               type="password"
               name="passwordInput"
-
+              value={ password }
+              onChange={ handlePassword }
             />
           </div>
           <div className="inputs-register">
@@ -39,7 +58,8 @@ function Register() {
               placeholder="Repeat password"
               type="password"
               name="repeatPasswordInput"
-
+              value={ repeatPassword }
+              onChange={ handleRepeatPassword }
             />
           </div>
           <button
