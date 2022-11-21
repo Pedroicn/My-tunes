@@ -1,0 +1,32 @@
+.header {
+  width: 100%;
+  background-color: #000;
+  min-height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  /* gap: 8px 15px; */
+  color: #fff;
+}
+
+.nav-header {
+  display: flex;
+  gap: 50px;
+}
+
+.links-header {
+  font-size: 20px;
+  padding: 5px;
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+}
+
+.links-header:hover {
+  border-bottom: 2px solid rgb(231, 4, 4);
+  color: rgb(230, 13, 13)
+}

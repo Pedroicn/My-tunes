@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import getMusics from '../../services/musicsAPI';
 import MusicCard from '../../components/musicCard/MusicCard';
 import './album.css'
+import Header from '../../components/musicCard/header/Header';
 
 function Album() {
   const [musics, setMusics] = useState([]);
@@ -19,6 +20,7 @@ function Album() {
   }, [id]);
   return (
     <div className="page-album">
+      <Header />
       <h1 className="search-title">My tunes - album</h1>
       <section className="section-title-album">
         {

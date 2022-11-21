@@ -3,6 +3,7 @@ import searchAlbumsAPI from '../../services/searchAlbumsAPI'
 import initialAlbuns from '../../helpers/initialAlbums';
 import { Link } from 'react-router-dom';
 import './home.css';
+import Header from '../../components/musicCard/header/Header';
 
 function Home() {
   const [searchInput, setSearchInput] = useState('');
@@ -43,6 +44,7 @@ function Home() {
   return (
     <div className="page-search">
       <div>
+        <Header />
         <h1 className="search-title">My tunes</h1>
         <form className="search-form" onSubmit={ handleClick }>
           <h3>Search for your favorite artist album</h3>
