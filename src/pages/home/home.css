@@ -57,3 +57,9 @@
 .search-button {
   width: 100px;
 }
+
+.result-text {
+  text-align: center;
+  margin: 30px;
+  font-size: 1.3rem;
+}

@@ -35,6 +35,7 @@ function Home() {
       setGetAlbuns([]);
     } else {
       setGetAlbuns(response);
+      setLoadedItems(true);
       setSearchInput('');
     }
   };
@@ -64,6 +65,11 @@ function Home() {
 
         </form>
       </div>
+
+      { getAlbuns.length !== 0
+      && <p className="result-text">{ `Resultado de álbuns de: - ${savedInputText}` }</p> }
+      { !loadedItems && <p>Nenhum álbum foi encontrado</p> }
+
       <section className="albuns">
         {getAlbuns.map((album) => (
           <Link
