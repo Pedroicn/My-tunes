@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './login.css'
 
 function Login() {
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+
+  const handleEmail = ({ target: { value } }) => {
+    setEmail(value);
+  };
+
+  const handlePassword = ({ target: { value } }) => {
+    setPassword(value);
+  };
+
   return (
     <main className="main">
       <div className="container-form" data-testid="page-login">
@@ -22,6 +33,8 @@ function Login() {
               type="text"
               name="emailInput"
               id="emailInput"
+              value={ email }
+              onChange={ handleEmail }
             />
           </div>
           <div className="inputs">
@@ -32,6 +45,8 @@ function Login() {
               type="password"
               name="passwordInput"
               id="password"
+              value={ password }
+              onChange={ handlePassword }
             />
           </div>
           <button
