@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import searchAlbumsAPI from '../../services/searchAlbumsAPI'
 import initialAlbuns from '../../helpers/initialAlbums';
 import { Link } from 'react-router-dom';
+import './home.css';
 
 function Home() {
   const [searchInput, setSearchInput] = useState('');
