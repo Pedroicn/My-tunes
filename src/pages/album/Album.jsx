@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import getMusics from '../../services/musicsAPI';
+import MusicCard from '../../components/MusicCard';
 
 function Album() {
   const [musics, setMusics] = useState([]);
@@ -15,7 +16,6 @@ function Album() {
     };
     fetchMusics();
   }, [id]);
-
   return (
     <div className="page-album" data-testid="page-album">
       <h1 className="search-title">My tunes - album</h1>
@@ -30,6 +30,7 @@ function Album() {
           ))
         }
       </section>
+      <MusicCard musics={ musics } />
     </div>
   )
 }
