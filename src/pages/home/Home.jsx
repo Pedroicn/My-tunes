@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import searchAlbumsAPI from '../../services/searchAlbumsAPI'
+import initialAlbuns from '../../helpers/initialAlbums';
 
 function Home() {
   const [searchInput, setSearchInput] = useState('');
