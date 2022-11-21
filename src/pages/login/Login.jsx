@@ -1,16 +1,17 @@
 import React from 'react'
+import './login.css'
 
 function Login() {
   return (
     <main className="main">
-      <div className="container-form">
+      <div className="container-form" data-testid="page-login">
         <h1 className="title">My Tunes</h1>
         <i
           className="bi bi-music-note-list fs-3"
         >
           The best way to listen to music
         </i>
-        <form>
+        <form className="form-login">
           <h3>Login</h3>
           <div className="inputs">
             <i className="bi bi-envelope-at-fill fs-3" />
