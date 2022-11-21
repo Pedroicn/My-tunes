@@ -4,6 +4,7 @@ import initialAlbuns from '../../helpers/initialAlbums';
 
 function Home() {
   const [searchInput, setSearchInput] = useState('');
+  const [getAlbuns, setGetAlbuns] = useState([]);
 
   const handleSearch = ({ target: { value } }) => {
     setSearchInput(value);
