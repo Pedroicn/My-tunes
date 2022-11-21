@@ -26,11 +26,24 @@ function Home() {
     fetchInitialAlbuns();
   }, []);
 
+  const handleClick = async (event) => {
+    event.preventDefault();
+    setSavedInputText(searchInput);
+    const response = await searchAlbumsAPI(searchInput);
+    if (response.length === 0) {
+      setLoadedItems(false);
+      setGetAlbuns([]);
+    } else {
+      setGetAlbuns(response);
+      setSearchInput('');
+    }
+  };
+
   return (
     <div className="page-search">
       <div>
         <h1 className="search-title">My tunes</h1>
-        <form className="search-form">
+        <form className="search-form" onSubmit={ handleClick }>
           <h3>Search for your favorite artist album</h3>
           <div>
             <input
