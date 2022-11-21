@@ -1,11 +1,12 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
 import Login from "./pages/login/Login";
 
 function App() {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <Routes>
+      <Route path="/" element={ <Login /> } />
+    </Routes>
   );
 }
 
