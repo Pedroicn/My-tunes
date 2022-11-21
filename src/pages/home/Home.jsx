@@ -7,6 +7,8 @@ import './home.css';
 function Home() {
   const [searchInput, setSearchInput] = useState('');
   const [getAlbuns, setGetAlbuns] = useState([]);
+  const [savedInputText, setSavedInputText] = useState('');
+  const [loadedItems, setLoadedItems] = useState(true);
 
   const handleSearch = ({ target: { value } }) => {
     setSearchInput(value);
