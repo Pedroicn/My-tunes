@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './musicCard.css';
 
 function musicCard(props) {
   const { musics } = props;

@@ -1,0 +1,23 @@
+.page-album {
+  background-color: rgba(0, 0, 0, 0.9);
+  min-height: 100vh;
+  color: #fff;
+}
+
+.actual-album {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 5px 5px 5px 5px #000;
+  gap: 20px;
+  border-radius: 1rem;
+  padding: 30px;
+  width: 200px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.section-title-album {
+  display: flex;
+  justify-content: center;
+}
