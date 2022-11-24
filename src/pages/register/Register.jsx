@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './register.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,6 +10,7 @@ function Register() {
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const { registerUser } = useContext(AuthContext)
+  const navigate = useNavigate();
 
   const handleEmail = ({ target: { value } }) => {
     setEmail(value);
@@ -24,11 +25,13 @@ function Register() {
   };
 
   const singUp = async () => {
-    const THREE_SECONDS = 3000;
+    const TWO_SECONDS = 2000;
     try {
       await registerUser(email, password);
-      toast.success('registered successfully');
-      setTimeout(() => <Link to="/" />, THREE_SECONDS);
+      toast.success('registered successfully', {
+        autoClose: 2000,
+      });
+      setTimeout(() => navigate('/'), TWO_SECONDS);
       setPassword('');
       setRepeatPassword('');
       setEmail('');
