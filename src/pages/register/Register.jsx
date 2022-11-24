@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './register.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AuthContext from '../../context/AuthContext';
 
 function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const { registerUser } = useContext(AuthContext)
 
   const handleEmail = ({ target: { value } }) => {
     setEmail(value);
@@ -21,6 +23,20 @@ function Register() {
     setRepeatPassword(value);
   };
 
+  const singUp = async () => {
+    const THREE_SECONDS = 3000;
+    try {
+      await registerUser(email, password);
+      toast.success('registered successfully');
+      setTimeout(() => <Link to="/" />, THREE_SECONDS);
+      setPassword('');
+      setRepeatPassword('');
+      setEmail('');
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }
+
 
   const handleClickRegister = async (e) => {
     e.preventDefault();
@@ -30,7 +46,9 @@ function Register() {
       toast.error('Passwords must be the same!');
       setPassword('');
       setRepeatPassword('');
-    } 
+    } else {
+      singUp();
+    }
   };
 
   return (
