@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link  } from 'react-router-dom';
+import AuthContext from '../../../context/AuthContext';
 import './header.css';
 
 function Header() {
+  const { user } = useContext(AuthContext);
   return (
-    <header className="header" data-testid="header-component">
+    <header className="header">
       <nav className="nav-header">
         <Link
           className="links-header"
@@ -13,6 +15,9 @@ function Header() {
           Home
         </Link>
       </nav>
+      <p>
+          {user.email}
+      </p>
     </header>
   )
 }
