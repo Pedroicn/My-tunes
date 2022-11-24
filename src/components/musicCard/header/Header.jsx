@@ -1,10 +1,22 @@
 import React, { useContext } from 'react';
-import { Link  } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import AuthContext from '../../../context/AuthContext';
 import './header.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Header() {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/');
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }
   return (
     <header className="header">
       <nav className="nav-header">
@@ -15,9 +27,17 @@ function Header() {
           Home
         </Link>
       </nav>
-      <p>
-          {user.email}
-      </p>
+      <div className='user'>
+        <p>
+            { user &&  `User:  ${ user.email }` }
+        </p>
+
+        <button className="logout-button" onClick={ handleLogout }>
+          logout
+        </button>
+        <ToastContainer />
+      </div>
+      
     </header>
   )
 }
