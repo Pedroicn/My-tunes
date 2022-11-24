@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import { GoogleButton } from 'react-google-button'
 import AuthContext from '../../context/AuthContext';
 import './login.css'
 import { ToastContainer, toast } from 'react-toastify';
@@ -8,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function Login() {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const { signIn } = useContext(AuthContext);
+  const { signIn, signInGoogle, user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleEmail = ({ target: { value } }) => {
@@ -18,6 +19,20 @@ function Login() {
   const handlePassword = ({ target: { value } }) => {
     setPassword(value);
   };
+
+  const handleGoogleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await signInGoogle();
+      if(user) {
+        navigate('/home');
+      }
+      navigate('/home');
+      console.log(user);
+    } catch (error) {
+      toast.error(error.message, { position: "top-left" })
+    }
+  }
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -69,8 +84,11 @@ function Login() {
           >
             Login
           </button>
-          <div>
-            <Link to='/register'>New to MyTunes? Sign up for free!</Link> 
+          
+          <div className='signIn-google'>
+            <Link to='/register'>New to MyTunes? Sign up for free!</Link>
+            <p>OR</p> 
+            <GoogleButton onClick={ handleGoogleLogin } />
           </div>
           <ToastContainer />
         </form>
