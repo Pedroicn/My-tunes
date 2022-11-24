@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import AuthContext from '../../context/AuthContext';
 import './login.css'
-// require('dotenv').config()
-// console.log(process.env)
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleEmail = ({ target: { value } }) => {
     setEmail(value);
@@ -15,6 +18,16 @@ function Login() {
   const handlePassword = ({ target: { value } }) => {
     setPassword(value);
   };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await signIn(email, password);
+      navigate('/home');
+    } catch (error) {
+      toast.error(error.message, { position:'top-left' })
+    }
+  }
 
   return (
     <main className="main">
@@ -25,7 +38,7 @@ function Login() {
         >
           The best way to listen to music
         </i>
-        <form className="form-login">
+        <form className="form-login" onSubmit={ handleLogin }>
           <h3>Login</h3>
           <div className="inputs">
             <i className="bi bi-envelope-at-fill fs-3" />
@@ -59,7 +72,7 @@ function Login() {
           <div>
             <Link to='/register'>New to MyTunes? Sign up for free!</Link> 
           </div>
-
+          <ToastContainer />
         </form>
       </div>
     </main>

@@ -3,6 +3,7 @@ import AuthContext from './AuthContext';
 import auth from '../services/firebase';
 import { 
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from 'firebase/auth'
 
 function AuthProvider({ children }) {
@@ -11,7 +12,11 @@ function AuthProvider({ children }) {
     return createUserWithEmailAndPassword(auth, email, password)
   }
 
-  const contextValue = { registerUser }
+  const signIn = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password)
+  }
+
+  const contextValue = { registerUser, signIn }
   return (
     <AuthContext.Provider value={ contextValue }>
       { children }

@@ -30,13 +30,14 @@ function Register() {
       await registerUser(email, password);
       toast.success('registered successfully', {
         autoClose: 2000,
+        position:'top-left'
       });
       setTimeout(() => navigate('/'), TWO_SECONDS);
       setPassword('');
       setRepeatPassword('');
       setEmail('');
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.message, { position:'top-left' });
     }
   }
 
