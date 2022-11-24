@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './login.css'
+// require('dotenv').config()
+// console.log(process.env)
 
 function Login() {
   const [password, setPassword] = useState('');
