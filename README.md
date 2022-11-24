@@ -12,7 +12,6 @@ To test, just enter the link below and register. Remembering that the project do
 
 Deploy [https://my-tunes-eight.vercel.app/](https://my-tunes-eight.vercel.app/)
 
- /home/pedro/ProjetosPessoais/my-tunes/src/images/dark-rider-JmVaNyemtN8-unsplash.jpg
 
 ## Running
 
