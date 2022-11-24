@@ -5,6 +5,7 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import AuthProvider from "./context/AuthProvider";
+import ProtectedRoute from "./services/ProtectedRoute";
 
 function App() {
   return (
@@ -12,8 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={ <Login /> } />
         <Route path="/register" element={ <Register /> } />
-        <Route path="/home" element={ <Home /> } />
-        <Route path="/album/:id" element={ <Album /> } />
+        <Route path="/home" element={ <ProtectedRoute><Home /></ProtectedRoute>  } />
+        <Route path="/album/:id" element={ <ProtectedRoute><Album /></ProtectedRoute> } />
       </Routes>
     </AuthProvider>
   );
