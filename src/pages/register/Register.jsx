@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './register.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Register() {
   const [email, setEmail] = useState('');
@@ -19,6 +21,18 @@ function Register() {
     setRepeatPassword(value);
   };
 
+
+  const handleClickRegister = async (e) => {
+    e.preventDefault();
+    if (!email || !password || !repeatPassword) {
+      toast.error('FILL IN ALL FIELDS');
+    } else if (password !== repeatPassword) {
+      toast.error('Passwords must be the same!');
+      setPassword('');
+      setRepeatPassword('');
+    } 
+  };
+
   return (
     <main className="main">
       <div className="container-form">
@@ -28,7 +42,7 @@ function Register() {
         >
           The best way to listen to music
         </i>
-        <form className="form-register">
+        <form className="form-register" onSubmit={ handleClickRegister }>
           <h3>Registration</h3>
           <div className="inputs-register">
             <span>Register your e-mail</span>
@@ -74,6 +88,7 @@ function Register() {
           </div>
 
         </form>
+        <ToastContainer />
       </div>
     </main>
   )
