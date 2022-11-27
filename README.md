@@ -12,19 +12,3 @@ To test, just enter the link below and register. Remembering that the project do
 
 Deploy [https://my-tunes-eight.vercel.app/](https://my-tunes-eight.vercel.app/)
 
-
-## Running
-
-### In the terminal:
-
-#### `git clone git@github.com:Pedroicn/My-tunes.git`
-
-### In the project directory, you can run:
-
-#### `yarn install` or `npm install` to download the dependencies
-
-#### `yarn start or npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
